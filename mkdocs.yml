@@ -1,0 +1,86 @@
+site_name: My Docs
+theme:
+
+  # Logo
+  logo: assets/logo.png
+
+  # Favicon
+  favicon: assets/favicon.png
+  
+  # Enabled features
+  features:
+    - navigation.tracking
+    - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - toc.integrate
+    - header.autohide
+    - announce.dismiss
+
+  # Plugins List
+  plugins:
+    - search
+    - offline
+    - social:
+        cards_color:
+          fill: "#0FF1CE" 
+          text: "#FFFFFF"
+        cards_font: Roboto
+    - icon: fontawesome/brands/github
+      link: https://github.com/CardoPixel
+      name: CardoPixelado on Github
+  
+  # Copyright
+  copyright: Copyright &copy; 2013 - 2023 Ricardo Vasquez Rojas
+
+  
+  # Disabling Google Font to comply to privacy regulations
+  font: false,
+  
+  extra:
+
+    # Disable the `Made with Material for MkDocs` notice
+    generator: false
+
+    # Language selector
+    alternate:
+      - name: English
+        link: /en/ 
+        lang: en
+      - name: Spanish
+        link: /es/
+        lang: es
+      - name: Portuguese (Brazilian)
+        link: /pt-BR/
+        lang: pt-BR
+    
+    # Cookies consent
+    consent:
+      title: Cookie consent
+      description: >- 
+        We use cookies to recognize your repeated visits and preferences, as well
+        as to measure the effectiveness of our documentation and whether users
+        find what they're searching for. With your consent, you're helping us to
+        make our documentation better.
+  
+  palette: 
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep orange
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  name: material
