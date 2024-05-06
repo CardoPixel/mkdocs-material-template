@@ -1,13 +1,13 @@
 # Welcome to MkDocs
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+For full documentation visit [mkdocs.org](https://www.mkdocs.org/getting-started/), [mkdocs-material](https://squidfunk.github.io/mkdocs-material/getting-started/), [drawio](https://www.drawio.com/doc/) and [mkdocs-drawio-file](https://github.com/onixpro/mkdocs-drawio-file).
 
 ## Commands
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+- `pip install mkdocs mkdocs-material mkdocs-drawio-file` - Install he dependancies of this project.
+- `mkdocs serve` - Start the live-reloading docs server.
+- `mkdocs build` - Build the documentation site.
+- `mkdocs -h` - Print help message and exit.
 
 ## Project layout
 

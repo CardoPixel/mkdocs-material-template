@@ -1,12 +1,11 @@
 site_name: My Docs
 theme:
-
   # Logo
   logo: assets/logo.png
 
   # Favicon
   favicon: assets/favicon.png
-  
+
   # Enabled features
   features:
     - navigation.tracking
@@ -25,29 +24,22 @@ theme:
     - offline
     - social:
         cards_color:
-          fill: "#0FF1CE" 
+          fill: "#0FF1CE"
           text: "#FFFFFF"
         cards_font: Roboto
     - icon: fontawesome/brands/github
       link: https://github.com/CardoPixel
       name: CardoPixelado on Github
-  
+    - drawio_file
+
   # Copyright
-  copyright: Copyright &copy; 2013 - 2023 Ricardo Vasquez Rojas
+  copyright: Copyright &copy; 2013 - 2024 Ricardo Vasquez Rojas
 
-  
-  # Disabling Google Font to comply to privacy regulations
-  font: false,
-  
   extra:
-
-    # Disable the `Made with Material for MkDocs` notice
-    generator: false
-
     # Language selector
     alternate:
       - name: English
-        link: /en/ 
+        link: /en/
         lang: en
       - name: Spanish
         link: /es/
@@ -55,17 +47,17 @@ theme:
       - name: Portuguese (Brazilian)
         link: /pt-BR/
         lang: pt-BR
-    
+
     # Cookies consent
     consent:
       title: Cookie consent
-      description: >- 
+      description: >-
         We use cookies to recognize your repeated visits and preferences, as well
         as to measure the effectiveness of our documentation and whether users
         find what they're searching for. With your consent, you're helping us to
         make our documentation better.
-  
-  palette: 
+
+  palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default

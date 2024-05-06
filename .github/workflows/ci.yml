@@ -1,23 +1,53 @@
-name: ci 
+name: ci
 
 on:
   push:
     branches:
       - master
       - main
+    paths:
+      - "**.drawio"
+      - .github/workflows/ci.yml
+
 permissions:
   contents: write
+
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - name: Checkout sources
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - uses: actions/cache@v2
+
+      - name: Export draw.io files to PNG
+        uses: rlespinasse/drawio-export-action@v2
+        if: contains(github.ref, 'refs/heads/main') || contains(github.ref, 'refs/heads/master')
         with:
-          key: ${{ github.ref }}
-          path: .cache
-      - run: pip install mkdocs-material 
-      - run: mkdocs gh-deploy --force
+          format: png
+          transparent: true
+          output: drawio-assets
+
+      - name: Install MkDocs with material theme
+        run: pip install mkdocs-material
+        if: contains(github.ref, 'refs/heads/main') || contains(github.ref, 'refs/heads/master')
+
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force
+        if: contains(github.ref, 'refs/heads/main') || contains(github.ref, 'refs/heads/master')
+
+      - name: Commit draw.io exported files
+        uses: stefanzweifel/git-auto-commit-action@v4
+        if: contains(github.ref, 'refs/heads/main') || contains(github.ref, 'refs/heads/master')
+        with:
+          commit_message: "docs: sync draw.io exported files"
+          commit_user_name: "${{ github.actor }}"
+          commit_user_email: "${{ github.actor }}@users.noreply.github.com"
+          commit_author: "${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>"
