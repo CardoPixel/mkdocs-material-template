@@ -33,7 +33,7 @@ jobs:
         with:
           format: png
           transparent: true
-          output: docs/drawio-assets
+          output: drawio-assets
 
       - name: Install MkDocs with material theme
         run: pip install mkdocs-material
