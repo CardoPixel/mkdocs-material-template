@@ -30,7 +30,6 @@ theme:
     - icon: fontawesome/brands/github
       link: https://github.com/CardoPixel
       name: CardoPixelado on Github
-    - drawio_file
 
   # Copyright
   copyright: Copyright &copy; 2013 - 2024 Ricardo Vasquez Rojas
