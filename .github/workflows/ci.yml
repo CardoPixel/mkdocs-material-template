@@ -3,11 +3,11 @@ name: ci
 on:
   push:
     branches:
-      - master
       - main
     paths:
       - "**.drawio"
       - .github/workflows/ci.yml
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -29,23 +29,23 @@ jobs:
 
       - name: Export draw.io files to PNG
         uses: rlespinasse/drawio-export-action@v2
-        if: contains(github.ref, 'refs/heads/main') || contains(github.ref, 'refs/heads/master')
+        if: contains(github.ref, 'refs/heads/main')
         with:
           format: png
           transparent: true
-          output: drawio-assets
+          output: docs/drawio-assets
 
       - name: Install MkDocs with material theme
         run: pip install mkdocs-material
-        if: contains(github.ref, 'refs/heads/main') || contains(github.ref, 'refs/heads/master')
+        if: contains(github.ref, 'refs/heads/main')
 
       - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy --force
-        if: contains(github.ref, 'refs/heads/main') || contains(github.ref, 'refs/heads/master')
+        if: contains(github.ref, 'refs/heads/main')
 
       - name: Commit draw.io exported files
         uses: stefanzweifel/git-auto-commit-action@v4
-        if: contains(github.ref, 'refs/heads/main') || contains(github.ref, 'refs/heads/master')
+        if: contains(github.ref, 'refs/heads/main')
         with:
           commit_message: "docs: sync draw.io exported files"
           commit_user_name: "${{ github.actor }}"
