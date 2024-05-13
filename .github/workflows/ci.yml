@@ -31,7 +31,6 @@ jobs:
         uses: rlespinasse/drawio-export-action@v2
         if: contains(github.ref, 'refs/heads/main')
         with:
-          path: assets
           format: png
           transparent: true
           output: drawio-assets
