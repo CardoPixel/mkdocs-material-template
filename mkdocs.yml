@@ -1,19 +1,49 @@
-site_name: My Docs
-theme:
-  # Logo
-  logo: assets/logo.png
+# Site name
+site_name: MkDocs Material Template
 
-  # Favicon
-  favicon: assets/favicon.png
+# Copyright
+copyright: MIT &copy; 2023 - 2024 CardoPixel (Ricardo Vásquez Rojas)
+
+# Code origin
+repo_url: https://github.com/CardoPixel/mkdocs-material-template
+repo_name: CardoPixel/mkdocs-material-template
+edit_uri: edit/main/docs/
+
+# Theme settings
+theme:
+  # Material Theme
+  name: material
+
+  # Icons
+  icon:
+    logo: material/library
+    favicon: material/library
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+  # Fonts
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  # Language
+  language: en
 
   # Enabled features
   features:
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
     - navigation.tracking
     - navigation.top
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
+    - navigation.footer
     - toc.integrate
     - header.autohide
     - announce.dismiss
@@ -22,31 +52,20 @@ theme:
   plugins:
     - search
     - offline
-    - social:
-        cards_color:
-          fill: "#0FF1CE"
-          text: "#FFFFFF"
-        cards_font: Roboto
-    - icon: fontawesome/brands/github
-      link: https://github.com/CardoPixel
-      name: CardoPixelado on Github
-
-  # Copyright
-  copyright: Copyright &copy; 2013 - 2024 Ricardo Vasquez Rojas
+    - optimize
+    - git-authors
+    - git-revision-date-localized:
+      type: timeago
+      timezone: Etc/GMT
+      locale: en
+      fallback_to_build_date: true
+      enable_creation_date: true
+      exclude:
+        - index.md
+      enabled: true
+      strict: true
 
   extra:
-    # Language selector
-    alternate:
-      - name: English
-        link: /en/
-        lang: en
-      - name: Spanish
-        link: /es/
-        lang: es
-      - name: Portuguese (Brazilian)
-        link: /pt-BR/
-        lang: pt-BR
-
     # Cookies consent
     consent:
       title: Cookie consent
@@ -56,22 +75,37 @@ theme:
         find what they're searching for. With your consent, you're helping us to
         make our documentation better.
 
+  # Color Pallete
   palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: deep orange
-      accent: blue
+      scheme: your-theme
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: blue
-      accent: deep orange
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-  name: material
+# Additional CSS
+extra_css:
+  - assets/stylesheets/extra.css
+
+# Extras
+extra:
+  generator: true
+
+# Markdown Extensions
+markdown_extensions:
+  - meta

@@ -1,0 +1,25 @@
+/* Fix for link colors in light theme, make the colors the same as your-theme*/
+:root {
+    --md-primary-fg-color: #E99900;
+    --md-primary-fg-color--light: #C38000;
+    --md-primary-fg-color--dark: #905E00;
+    --md-accent-fg-color: #FFB800;
+    --md-accent-fg-color--transparent: #FFB8000A;
+}
+
+[data-md-color-scheme="your-theme"] {
+    --md-primary-fg-color: #E99900;
+    --md-primary-fg-color--light: #C38000;
+    --md-primary-fg-color--dark: #905E00;
+    --md-accent-fg-color: #FFB800;
+    --md-accent-fg-color--transparent: #FFB8000A;
+}
+
+[data-md-color-scheme="slate"] {
+    --md-hue: 210;
+    --md-primary-fg-color: #006CCC;
+    --md-primary-fg-color--light: #0087FF;
+    --md-primary-fg-color--dark: #00437F;
+    --md-accent-fg-color: #0088FF;
+    --md-accent-fg-color--transparent: #0088FF0A;
+}

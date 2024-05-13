@@ -31,9 +31,14 @@ jobs:
         uses: rlespinasse/drawio-export-action@v2
         if: contains(github.ref, 'refs/heads/main')
         with:
+          path: assets
           format: png
           transparent: true
           output: drawio-assets
+
+      - name: Get author and committer info from HEAD commit
+        uses: rlespinasse/git-commit-data-action@v1
+        if: github.ref == 'refs/heads/main'
 
       - name: Install MkDocs with material theme
         run: pip install mkdocs-material
@@ -47,7 +52,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         if: contains(github.ref, 'refs/heads/main')
         with:
-          commit_message: "docs: sync draw.io exported files"
-          commit_user_name: "${{ github.actor }}"
-          commit_user_email: "${{ github.actor }}@users.noreply.github.com"
-          commit_author: "${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>"
+          commit_message: "chore: 🖼 Exporting Draw.io files as PNG images"
+          commit_user_name: "${{ env.GIT_COMMIT_COMMITTER_NAME }}"
+          commit_user_email: "${{ env.GIT_COMMIT_COMMITTER_EMAIL }}"
+          commit_author: "${{ env.GIT_COMMIT_AUTHOR }}"

@@ -1,1 +1,8 @@
+# Compiled site
 /site
+
+# Modules
+node_modules
+
+# Package files
+package-lock.json

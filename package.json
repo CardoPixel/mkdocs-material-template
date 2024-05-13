@@ -1,0 +1,49 @@
+{
+    "name": "mkdocs-material-template",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "serve": "mkdocs serve",
+        "build": "mkdocs build",
+        "release": "release-it"
+    },
+    "release-it": {
+        "git": {
+            "commitMessage": "chore: 🔖 Release v${version}"
+        },
+        "github": {
+            "release": true
+        },
+        "npm": {
+            "publish": false
+        },
+        "plugins": {
+            "@release-it/conventional-changelog": {
+                "infile": "CHANGELOG.md",
+                "preset": {
+                    "name": "conventionalcommits",
+                    "types": [
+                        {
+                            "type": "feat",
+                            "section": "Features"
+                        },
+                        {
+                            "type": "fix",
+                            "section": "Bug fixes"
+                        },
+                        {
+                            "type": "refactor",
+                            "section": "Refactors"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "dependencies": {
+        "@commitlint/cli": "^19.3.0",
+        "@commitlint/config-conventional": "^19.2.2",
+        "@release-it/conventional-changelog": "^8.0.1",
+        "release-it": "^17.2.1"
+    }
+}
